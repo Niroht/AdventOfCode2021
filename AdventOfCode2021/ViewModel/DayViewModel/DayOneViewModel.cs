@@ -26,20 +26,24 @@ namespace AdventOfCode2021.ViewModel.DayViewModel
 
         public override void OnRunPartOne()
         {
-            var parsedInput = Array.ConvertAll((Input ?? "").Split(" "), StringToInt);
-            Solution = _solver.GetNumberOfIncreases(parsedInput).ToString();
-        }
-
-        private int StringToInt(string input)
-        {
-            int parsed;
-            int.TryParse(input, out parsed);
-            return parsed;
+            Solution = _solver.GetNumberOfIncreases(ParseInput(Input), 1).ToString();
         }
 
         public override void OnRunPartTwo()
         {
-            throw new NotImplementedException();
+            Solution = _solver.GetNumberOfIncreases(ParseInput(Input), 3).ToString();
+        }
+
+        private static IEnumerable<int> ParseInput(string input)
+        {
+            return Array.ConvertAll((input ?? "").Split(" "), StringToIntOrDefault);
+        }
+
+        private static int StringToIntOrDefault(string input)
+        {
+            int parsed;
+            int.TryParse(input, out parsed);
+            return parsed;
         }
     }
 }
