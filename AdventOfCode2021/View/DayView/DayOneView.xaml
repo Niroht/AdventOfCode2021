@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dayViewModel="clr-namespace:AdventOfCode2021.ViewModel.DayViewModel"
+                    >
+    <DataTemplate DataType="{x:Type dayViewModel:DayOneViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Day 1: Depth Changes"/>
+            <TextBlock Text="{Binding Solution}" Grid.Row="1"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
